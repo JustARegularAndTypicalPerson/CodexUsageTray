@@ -1,0 +1,66 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "(switch_account|subscribe_chat|unsubscribe_chat)$",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"C:\\Path\\To\\CodexUsageTray\\publish-current\\CodexUsageTray.exe\" --hook-before-tool",
+            "timeout": 3,
+            "statusMessage": "Tagging the account switch to this chat"
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"C:\\Path\\To\\CodexUsageTray\\publish-current\\CodexUsageTray.exe\" --hook-turn-start",
+            "timeout": 3,
+            "statusMessage": "Tracking active Codex turns"
+          }
+        ]
+      }
+    ],
+    "SessionStart": [
+      {
+        "matcher": "startup|resume",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"C:\\Path\\To\\CodexUsageTray\\publish-current\\CodexUsageTray.exe\" --hook-session-start",
+            "timeout": 3,
+            "statusMessage": "Checking for an interrupted account switch"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"C:\\Path\\To\\CodexUsageTray\\publish-current\\CodexUsageTray.exe\" --hook-stop",
+            "timeout": 3,
+            "statusMessage": "Checking whether all Codex turns have yielded"
+          }
+        ]
+      }
+    ],
+    "Interrupt": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"C:\\Path\\To\\CodexUsageTray\\publish-current\\CodexUsageTray.exe\" --hook-interrupt",
+            "timeout": 3,
+            "statusMessage": "Updating active Codex turn tracking"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,12 @@
+bin/
+obj/
+publish/
+publish-next/
+publish-current/
+badge-preview.png
+*.user
+*.log
+.env*
+!*.env.example
+accounts.json
+auth.json
